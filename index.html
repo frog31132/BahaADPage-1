@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!doctype html>
+<html>
 <head>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -44,41 +44,62 @@ a,img{
 	margin: 0px auto;
 	position: relative;
 }
+#soundbtn{
+	display: block;
+	position: absolute;
+	width: 33px;
+	height: 20px;
+
+	left: 922px;
+	top: 186px;
+	cursor: pointer;
+	z-index: 3;
+}
 .link2 {
 	width: 568px;
 	height: 290px;
 	position: absolute;
 	z-index: 2;
-	left: 391px;
-	top: 186px;
+	left: 390px;
+	top: 185px;
 	display: block;
-	background-image: url(images/link.gif);
-	background-repeat: repeat;
+
 }
 .videos {
 	width: 568px;
-	height: 317px;
+	height: 290px;
 	position: absolute;
 	z-index: 1;
 	left: 390px;
 	top: 185px;
-	background-image: url(images/link.gif);
-	background-repeat: repeat;
 }
 -->
 </style>
 </head>
+
 <body bgcolor="#000000">
     <div class="bac1">
-    <a href="" target="_blank" class="link2"></a>
+    <a onclick="ga('send','event','click_link_events','click','頁面點擊','0');" href="http://www.gamer.com.tw/adcounter.php?id=164142" target="_blank" class="link2"></a>
+    <a id="soundbtn"><img src="images/sound.jpg" width="33" height="20" /></a>
     <div class="videos">
-    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="568" height="290">
-      <param name="movie" value="images/video.swf">
-      <param name="quality" value="high">
-     <!-- <param name="wmode" value="transparent"/> -->
-      <embed src="images/video.swf"  quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="568" height="290"></embed></object>
-      </div>
+    	<video width="568" height="290" muted loop autoplay id="Video1">
+      	<source src="images/movie.mp4" type="video/mp4">
+      	<source src="images/movie.ogv" type="video/ogv">
+    	</video>
+    </div>
 </div>
-<a onClick="ga('send','event','click_link_events','click','了解详情','0');" href="http://www.gamer.com.tw/adcounter.php?id=164142" target="_blank" class="bac"></a>
+<a onclick="ga('send','event','click_link_events','click','了解详情','0');" href="http://www.gamer.com.tw/adcounter.php?id=164142" target="_blank" class="bac"></a>
 </body>
+<script>
+var video = document.getElementById("Video1");
+document.getElementById("soundbtn").addEventListener("click", function (evt) {
+    if (video.muted) {
+        video.muted = false;
+        document.getElementById("soundbtn").innerHTML = "<img src='images/soundr.jpg' />"
+    } else {
+        video.muted = true;
+        document.getElementById("soundbtn").innerHTML = "<img src='images/sound.jpg' />"
+    }
+}, false);
+</script>
 </html>
